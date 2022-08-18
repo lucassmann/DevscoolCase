@@ -12,7 +12,7 @@
       <button type="button" class="button" id="addPerson">
         Adicionar Pessoa
       </button>
-      <laber for="people"
+      <label for="people"
         >Organizar por:
         <select name="people" id="selectorPeople">
           <option value="name">Nome</option>
@@ -22,7 +22,19 @@
           <option value="adult">Adultos</option>
           <option value="elderly">Idosos</option>
         </select>
-      </laber>
+      </label>
+      <table id="tablePerson" class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- person will be created in this tbody -->
+        </tbody>
+      </table>
     </main>
   </body>
 </html>
