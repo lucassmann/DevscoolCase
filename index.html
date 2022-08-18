@@ -9,20 +9,41 @@
   </head>
   <body>
     <main>
-      <button type="button" class="button" id="addPerson">
-        Adicionar Pessoa
-      </button>
-      <label for="people"
-        >Organizar por:
-        <select name="people" id="selectorPeople">
-          <option value="name">Nome</option>
-          <option value="age">Idade</option>
-          <option value="children">Crianças</option>
-          <option value="teenager">Adolescentes</option>
-          <option value="adult">Adultos</option>
-          <option value="elderly">Idosos</option>
-        </select>
-      </label>
+      <div>
+        <form id="addPersonForm" class="form">
+          <input
+            id="name"
+            type="text"
+            class="modal-field"
+            placeholder="Nome"
+            data-index=""
+            required
+          />
+          <input
+            id="age"
+            type="number"
+            class="modal-field"
+            placeholder="Idade"
+            required
+          />
+          <button type="button" class="button" id="addPerson">
+            Adicionar Pessoa
+          </button>
+        </form>
+      </div>
+      <div>
+        <label for="people"
+          >Organizar por:
+          <select name="people" id="selectorPeople">
+            <option value="name">Nome</option>
+            <option value="age">Idade</option>
+            <option value="children">Crianças</option>
+            <option value="teenager">Adolescentes</option>
+            <option value="adult">Adultos</option>
+            <option value="elderly">Idosos</option>
+          </select>
+        </label>
+      </div>
       <table id="tablePerson" class="table">
         <thead>
           <tr>
