@@ -9,6 +9,24 @@ const createPerson = (person) => {
     setLocalStorage(personStorage)
 }
 
+const deletePerson = (index) => {
+    const personStorage = getPersonStorage()
+    personStorage.splice(index, 1)
+    setLocalStorage(personStorage)
+}
+
+const editperson = (index) => {
+    const person = getPersonStorage()[index]
+    person.index = index
+    fillFields(person)
+}
+
+const fillFields = (person) => {
+    document.getElementById('name').value = person.name
+    document.getElementById('age').value = person.age
+    document.getElementById('name').dataset.index = person.index
+}
+
 // Table interactivity
 
 const createRow = (person, index) => {
@@ -56,3 +74,5 @@ document.getElementById('addPerson')
     .addEventListener('click', addPersonEvent)
 
 // Run on start to show people in local storage from previous session
+
+updateTable()
