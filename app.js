@@ -9,6 +9,30 @@ const createPerson = (person) => {
     setLocalStorage(personStorage)
 }
 
+// Table interactivity
+
+const createRow = (person, index) => {
+    const newRow = document.createElement('tr')
+    newRow.innerHTML = `
+        <td>${person.name}</td>
+        <td>${person.age}</td>
+        <td>
+            <button type="button" class="button red" id="delete-${index}" >Excluir</button>
+            <button type="button" class="button yellow" id="edit-${index}" >Editar</button>
+        </td>
+    `
+    document.querySelector('#tablePerson>tbody').appendChild(newRow)
+}
+
+const updateTable = (personStorage) => {
+    clearTable()
+    if (personStorage != null) personStorage.forEach(createRow)
+}
+const clearTable = () => {
+    const rows = document.querySelectorAll('#tablePerson>tbody tr')
+    rows.forEach(row => row.parentNode.removeChild(row))
+}
+
 // Event Handlers
 
 const addPersonEvent = () => {
@@ -19,6 +43,7 @@ const addPersonEvent = () => {
         }
         const index = document.getElementById('name').dataset.index
             createPerson(person)}
+            updateTable(getPersonStorage())
 }
 
 const isValidFields = () => {
@@ -29,3 +54,5 @@ const isValidFields = () => {
 
 document.getElementById('addPerson')
     .addEventListener('click', addPersonEvent)
+
+// Run on start to show people in local storage from previous session
