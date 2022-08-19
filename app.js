@@ -1,5 +1,6 @@
 // Person storage
 
+// If there is no personStorage, creates a new personStorage array in localStorage
 const getPersonStorage = () => JSON.parse(localStorage.getItem('personStorage')) ?? []
 const setLocalStorage = (personStorage) => localStorage.setItem("personStorage", JSON.stringify(personStorage))
 
@@ -9,6 +10,7 @@ const createPerson = (person) => {
     setLocalStorage(personStorage)
 }
 
+// Argument index is the index of the person in getPersonStorage()
 const deletePerson = (index) => {
     const personStorage = getPersonStorage()
     personStorage.splice(index, 1)
@@ -22,6 +24,7 @@ const editperson = (index) => {
 }
 
 // Person Table sorters and filters
+// Update table doesn't overwrite personStorage, just clears and creates rows in HTML.
 
 const sortByAge = () => {
     let personStorage = getPersonStorage()
@@ -83,6 +86,8 @@ const createRow = (person, index) => {
     document.querySelector('#tablePerson>tbody').appendChild(newRow)
 }
 
+// updateTable receives a personStorage array as argument so that it can be invoked by the sorters and filters without overwriting the personStorage in local storage.
+
 const updateTable = (personStorage) => {
     clearTable()
     if (personStorage != null) personStorage.forEach(createRow)
@@ -109,6 +114,9 @@ const addPersonEvent = () => {
 const isValidFields = () => {
     return document.getElementById('addPersonForm').reportValidity()
 }
+
+// Both edit and delete so the document.querySelector('#tablePerson>tbody') can be used. 
+// The HTML button ids are dynamically created with a 'action-index' pattern
 
 const editDeletePersonEvent = (event) => {
     if (event.target.type == 'button') {
