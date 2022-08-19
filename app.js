@@ -80,7 +80,7 @@ const createRow = (person, index) => {
         <td>${person.age}</td>
         <td>
             <button type="button" class="button red" id="delete-${index}" >Excluir</button>
-            <button type="button" class="button yellow" id="edit-${index}" >Editar</button>
+            <button type="button" class="button green" id="edit-${index}" >Editar</button>
         </td>
     `
     document.querySelector('#tablePerson>tbody').appendChild(newRow)

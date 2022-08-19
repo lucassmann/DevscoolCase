@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/button.css" />
+    <link rel="stylesheet" href="css/table.css" />
     <script src="app.js" defer></script>
     <title>Devscool Case</title>
   </head>
   <body>
+    <header>
+      <h1 class="header-title">Cadastro de Pessoas</h1>
+    </header>
     <main>
       <div>
         <form id="addPersonForm" class="form">
@@ -26,7 +32,7 @@
             placeholder="Idade"
             required
           />
-          <button type="button" class="button" id="addPerson">
+          <button type="button" class="button blue" id="addPerson">
             Adicionar Pessoa
           </button>
         </form>
@@ -44,7 +50,7 @@
           </select>
         </label>
       </div>
-      <table id="tablePerson" class="table">
+      <table id="tablePerson">
         <thead>
           <tr>
             <th>Nome</th>

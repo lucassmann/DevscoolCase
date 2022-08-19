@@ -1,0 +1,20 @@
+.button{
+    border-style: none;
+    height: 40px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button.blue{
+    background-color: #1FB6FF;
+}
+
+button.green{
+    background-color: green;
+}
+
+button.red{
+    background-color: rgb(199, 24, 24);
+}

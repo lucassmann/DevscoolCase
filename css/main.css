@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+}
+
+header{
+    background-color: #00ccff;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.header-title{
+    color: black;
+    font-size: 2rem;
+}
+
+main{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    margin: 5vh auto;
+    padding: 50px;
+    gap: 20px;
+}
