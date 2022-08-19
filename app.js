@@ -21,6 +21,38 @@ const editperson = (index) => {
     fillFields(person)
 }
 
+// Person Table sorters and filters
+
+const sortByAge = () => {
+    let personStorage = getPersonStorage()
+    updateTable(personStorage.sort((a, b) => (a.age - b.age)))
+  }
+  
+  const sortByName = () => {
+    let personStorage = getPersonStorage()
+    updateTable(personStorage.sort((a, b) => (a.name > b.name) ? 1 : -1))
+  }
+  
+  const showPersonStorageByChildren = () => {
+    let personStorage = getPersonStorage()
+    updateTable(personStorage.filter(p => (p.age < 12)))
+  }
+  
+  const showPersonStorageByTeenager = () => {
+    let personStorage = getPersonStorage()
+    updateTable(personStorage.filter(p => (p.age >= 12 && p.age < 20)))
+  }
+  
+  const showPersonStorageByAdult = () => {
+    let personStorage = getPersonStorage()
+    updateTable(personStorage.filter(p => (p.age >= 20 && p.age < 65)))
+  }
+  
+  const showPersonStorageByElderly = () => {
+    let personStorage = getPersonStorage()
+    updateTable(personStorage.filter(p => (p.age >= 65)))
+  }
+
 
 // Form interactivity
 
