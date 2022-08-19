@@ -21,10 +21,19 @@ const editperson = (index) => {
     fillFields(person)
 }
 
+
+// Form interactivity
+
 const fillFields = (person) => {
     document.getElementById('name').value = person.name
     document.getElementById('age').value = person.age
     document.getElementById('name').dataset.index = person.index
+}
+
+const clearFields = () => {
+    const fields = document.querySelectorAll('.formField')
+    fields.forEach(field => field.value = "")
+    document.getElementById('name').dataset.index = 'new'
 }
 
 // Table interactivity
@@ -60,12 +69,32 @@ const addPersonEvent = () => {
             age: document.getElementById('age').value,
         }
         const index = document.getElementById('name').dataset.index
-            createPerson(person)}
-            updateTable(getPersonStorage())
+        createPerson(person)}
+        updateTable(getPersonStorage())
+        clearFields()
 }
 
 const isValidFields = () => {
     return document.getElementById('addPersonForm').reportValidity()
+}
+
+const editDeletePersonEvent = (event) => {
+    if (event.target.type == 'button') {
+        const [action, index] = event.target.id.split('-')
+        const person = getPersonStorage()[index]
+        if (action === 'delete') {
+            const response = confirm(`Confirma exclusão de ${person.name}`)
+            if (response) {
+                deletePerson(index)
+                updateTable(getPersonStorage())
+            }
+        }
+        if (action === 'edit'){
+            editperson(index)
+            deletePerson(index)
+            updateTable(getPersonStorage())
+        }
+    }
 }
 
 // Event Listeners
@@ -73,6 +102,10 @@ const isValidFields = () => {
 document.getElementById('addPerson')
     .addEventListener('click', addPersonEvent)
 
+document.querySelector('#tablePerson>tbody')
+.addEventListener('click', editDeletePersonEvent)
+
+
 // Run on start to show people in local storage from previous session
 
-updateTable()
+updateTable(getPersonStorage())
