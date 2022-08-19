@@ -137,6 +137,27 @@ document.getElementById('addPerson')
 document.querySelector('#tablePerson>tbody')
 .addEventListener('click', editDeletePersonEvent)
 
+selectorPeople.addEventListener('change', () => {
+    if(selectorPeople.value === 'name'){
+        sortByName()
+    }
+    if(selectorPeople.value === 'age'){
+        sortByAge()
+    }
+    if(selectorPeople.value === 'children'){
+        showPersonStorageByChildren()
+    }
+    if(selectorPeople.value === 'teenager'){
+        showPersonStorageByTeenager()
+    }
+    if(selectorPeople.value === 'adult'){
+        showPersonStorageByAdult()
+    }
+    if(selectorPeople.value === 'elderly'){
+        showPersonStorageByElderly()
+    }
+})
+
 
 // Run on start to show people in local storage from previous session
 
