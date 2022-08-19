@@ -1,4 +1,4 @@
-##English
+## English
 
 # Description:
 
@@ -22,7 +22,7 @@ Edit will automatically fill the add people form with the selected person inform
 Use the selector labelad 'Organizar por:' and select the sort or filter method to apply to your people list.
 Filtering by age group will show only users from the selected age group. To see all people again, select 'Organizar por: Nome' or 'Organizar por: Idade'.
 
-##Português
+## Português
 
 # Descrição:
 
