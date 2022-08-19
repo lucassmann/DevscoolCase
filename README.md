@@ -2,7 +2,7 @@
 
 # Description:
 
-This is an internship technical case for e-Core Devscool internship program: an in memory CRUD with data sorting features.
+This is an internship technical case for e-Core Devs'cool internship program: an in memory CRUD with data sorting features.
 
 ## How to use:
 
